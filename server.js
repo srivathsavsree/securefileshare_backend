@@ -11,8 +11,15 @@ const userRoutes = require('./routes/users');
 
 const app = express();
 
-// Middleware
-app.use(cors());
+const corsOptions = {
+    origin: '*', 
+    methods: 'GET,POST',
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
+};
+
+// Use CORS middleware with specified options
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
