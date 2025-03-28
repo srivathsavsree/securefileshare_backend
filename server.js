@@ -13,7 +13,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: "http://localhost:3000", // Allow frontend domain
+    origin: "https://secure-file-share-kappa.vercel.app", // Allow frontend domain
     methods: "GET,POST,PUT,DELETE,OPTIONS", // Allowed HTTP methods
     allowedHeaders: "Content-Type, Authorization, x-auth-token" // Allow custom headers
 }));
