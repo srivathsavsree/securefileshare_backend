@@ -11,14 +11,15 @@ const userRoutes = require('./routes/users');
 
 const app = express();
 
-const corsOptions = {
-    origin: '*', 
-    methods: 'GET,POST',
-    allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
-};
 
-// Use CORS middleware with specified options
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: "http://localhost:3000", // Allow frontend domain
+    methods: "GET,POST,PUT,DELETE,OPTIONS", // Allowed HTTP methods
+    allowedHeaders: "Content-Type, Authorization, x-auth-token" // Allow custom headers
+}));
+
+app.options("*", cors()); // Handle preflight requests
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
