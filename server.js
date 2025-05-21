@@ -12,12 +12,12 @@ const userRoutes = require('./routes/users');
 const app = express();
 
 
-app.use(cors({
-    origin: "https://secure-file-share-dun.vercel.app", // Allow frontend domain
-    methods: "GET,POST,PUT,DELETE,OPTIONS", // Allowed HTTP methods
-    allowedHeaders: "Content-Type, Authorization, x-auth-token" // Allow custom headers
-}));
 
+// Middleware
+app.use(cors({
+    origin: ['https://secure-file-share-dun.vercel.app'],
+    credentials: true
+}));
 app.options("*", cors()); // Handle preflight requests
 
 
