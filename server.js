@@ -15,12 +15,12 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ['https://secure-file-share-dun.vercel.app'],
-    credentials: true
+    origin: "https://secure-file-share-dun.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
+    credentials: true,
+    maxAge: 86400 // 24 hours
 }));
-app.options("*", cors()); // Handle preflight requests
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
